@@ -2,16 +2,61 @@ from django import forms
 from django.forms import ModelForm
 from . models import *
 
+
+class TimeForm(forms.Form):
+    time = forms.TimeField(label='Current Time',error_messages={'required':'enter current time'})
+
+
+# class AddressForm(forms.Form):
+#     ADDRESS_CHOICES = (
+#         ('Birgunj','Birgunj'),
+#         ('Kathmandu','Kathmandu'),
+#         ('Pokhara','Pokhara'),
+#         ('Jankapur','Jankapur'),
+#     )
+#     address = forms.MultipleChoiceField(choices=ADDRESS_CHOICES)
+
+
+# class ProductsForm(ModelForm):
+#     class Meta:
+#         model = Products
+#         fields = ['name','pic']
+
+# class PostForm(forms.Form):
+#     name = forms.CharField()
+#     file = forms.FileField()
+
+
+# class PostForm(forms.Form):
+#     name = forms.CharField()
+
+# class PostForm(forms.Form):
+#     email = forms.EmailField()
+
+# class PostForm(forms.Form):
+#     date = forms.DateTimeField()
+
+
+# class PostForm(forms.Form):
+#     dtime = forms.DateTimeField()
+
+# class PostForm(forms.Form):
+#     STATUS_CHOICES = (('published','published'),('unpublished','unpublished'),)
+#     status = forms.ChoiceField(choices=STATUS_CHOICES)    
+
+# class PostForm(forms.Form):
+#     status = forms.BooleanField() 
+
 # class ProductForm(forms.Form):
 #     title = forms.CharField()
 #     description = forms.CharField()
 
 
-class StudentForm(forms.Form):
-    first_name = forms.CharField(max_length=20)
-    last_name = forms.CharField(max_length=20)
-    roll_number = forms.IntegerField(help_text='enter your roll number')
-    password = forms.CharField(widget=forms.PasswordInput())
+# class StudentForm(forms.Form):
+#     first_name = forms.CharField(max_length=20)
+#     last_name = forms.CharField(max_length=20)
+#     roll_number = forms.IntegerField(help_text='enter your roll number')
+#     password = forms.CharField(widget=forms.PasswordInput())
 
 
 # class ProductForm(forms.ModelForm):

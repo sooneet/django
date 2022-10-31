@@ -1,7 +1,13 @@
+from distutils.command.upload import upload
 from statistics import mode
 from django.db import models
 
 # Create your models here.
+
+class Products(models.Model):
+    name = models.CharField(max_length=20)
+    pic = models.ImageField(upload_to='images/')
+
 class Category(models.Model):
     name = models.CharField(max_length=20)
 
@@ -13,8 +19,6 @@ class Product(models.Model):
 
     def __str__(self):
         return self.title
-
-
 
 class Post(models.Model):
     GENDER_CHOICES  = (('male','male'),('female','female'),)

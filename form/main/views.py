@@ -2,13 +2,66 @@ from django.shortcuts import render,HttpResponse
 # from . forms import ProductForm
 # from . forms import StudentForm
 from . forms import *
-from django.forms import modelformset_factory
+# from django.forms import modelformset_factory
 
 # Create your views here.
-
 def index(request):
-    formset = modelformset_factory(Category,fields =['name'], extra = 3)
-    return render(request,'main/index.html',{'form':formset})
+    form = TimeForm(request.POST or None)
+    if request.method == 'POST':
+        if form.is_valid():
+            temp = form.cleaned_data.get('time')
+            print(temp)
+    return render(request,'main/index.html',{'form':form})
+
+
+# def index(request):
+#     form = AddressForm(request.POST or None)
+#     if request.method == 'POST':
+#         if form.is_valid():
+#             temp = form.cleaned_data.get('address')
+#             print(temp)
+#     return render(request,'main/index.html',{'form':form})
+
+
+# def index(request):
+#     form = ProductsForm(None)
+#     if request.method == 'POST':
+#         form = ProductsForm(request.POST ,request.FILES)
+#         if form.is_valid():
+#             name = form.cleaned_data.get('name')
+#             pic = form.cleaned_data.get('pic')
+#             data = Products.objects.create(name=name,pic=pic)
+#             data.save()     
+#             print(data)       
+#     return render(request,'main/index.html',{'form':form})
+
+
+# def handle_uploaded_file(f):  
+#     with open('main/upload/'+f.name, 'wb+') as destination:  
+#         for chunk in f.chunks():
+#             destination.write(chunk)  
+
+# # Create your views here.
+# def index(request):
+#     context = {}
+#     if request.POST:
+#         form = PostForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             handle_uploaded_file(request.FILES["geeks_field"])
+#     else:
+#         form = PostForm()
+#     context['form'] = form
+#     return render(request, "main/index.html", context)
+
+
+
+# def index(request):
+#     form = PostForm()
+#     return render(request,'main/index.html',{'form':form})
+
+# def index(request):
+#     formset = modelformset_factory(Category,fields =['name'], extra = 3)
+#     return render(request,'main/index.html',{'form':formset})
 
 # def index(request):
 #     form = ProductForm()

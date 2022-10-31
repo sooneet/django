@@ -1,4 +1,20 @@
 
+<form action = "" method = "POST" >
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type='submit' value='submit'/>
+	</form> 
+
+
+
+{% comment %} <form action = "" method = "POST" enctype="multipart/form-data">
+{% csrf_token %}	
+{{ form.as_p }}
+<input type='submit' value='submit'/>
+</form>  {% endcomment %}
+
+
+
 
 <!-- <html>
 
@@ -44,16 +60,12 @@
 
 
 
-
-
-
-
-<form action = "" method = "post">
+{% comment %} <form action = "" method = "post">
 {{ form.management_data }}	
 {% csrf_token %}
 {{ form.as_p }}
 <input type='submit' value='submit'/>
-</form> 
+</form>  {% endcomment %}
 
 <!---
 <form action = "" method = "get">
